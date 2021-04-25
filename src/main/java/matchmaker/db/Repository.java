@@ -15,9 +15,6 @@ public class Repository {
         Gson gson = new Gson();
         JsonReader userJson = new JsonReader(new FileReader("src/main/resources/data.json"));
         User[] userArray = gson.fromJson(userJson, User[].class);
-        for(User user : userArray) {
-            System.out.println(user.toString());
-        }
         return Arrays.asList(userArray);
     }
 }
