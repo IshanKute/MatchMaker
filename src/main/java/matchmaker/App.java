@@ -2,7 +2,7 @@ package matchmaker;
 
 import matchmaker.db.Repository;
 import matchmaker.input.ConsoleInput;
-import matchmaker.input.ConsoleOperator;
+import matchmaker.input.PropertyReader;
 import matchmaker.input.UserBuilder;
 import matchmaker.models.Score;
 import matchmaker.models.User;
@@ -30,8 +30,8 @@ public class App {
 
         Util util = new Util();
         ConsoleInput consoleInput = new ConsoleInput(util);
-        ConsoleOperator consoleOperator = new ConsoleOperator(consoleInput, util);
-        UserBuilder userBuilder = new UserBuilder(consoleOperator);
+        PropertyReader propertyReader = new PropertyReader(consoleInput, util);
+        UserBuilder userBuilder = new UserBuilder(propertyReader);
         User user = userBuilder.build(new User());
 
         List<User> hardRulesFilteredUsers = data.stream().filter(

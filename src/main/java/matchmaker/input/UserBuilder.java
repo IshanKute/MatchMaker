@@ -6,25 +6,25 @@ import java.util.Arrays;
 import java.util.Collections;
 
 public class UserBuilder {
-    ConsoleOperator consoleOperator;
+    PropertyReader propertyReader;
 
-    public UserBuilder(ConsoleOperator consoleOperator) {
-        this.consoleOperator = consoleOperator;
+    public UserBuilder(PropertyReader propertyReader) {
+        this.propertyReader = propertyReader;
     }
 
     public User build(User user) {
-        user.setFullName(this.consoleOperator.getProperty("Full name", String.class, Collections.emptyList()));
-        user.setAge(this.consoleOperator.getProperty("Age", Integer.class, Collections.emptyList()));
-        user.setGender(this.consoleOperator.getProperty("Gender", Gender.class, Arrays.asList(Gender.values())));
-        user.setProfession(this.consoleOperator.getProperty("Profession", Profession.class, Arrays.asList(Profession.values())));
-        user.setDistrict(this.consoleOperator.getProperty("District", District.class, Arrays.asList(District.values())));
-        user.setHobbies(this.consoleOperator.getListProperty("Hobbies", String.class, Collections.emptyList()));
+        user.setFullName(this.propertyReader.getProperty("Full name", String.class, Collections.emptyList()));
+        user.setAge(this.propertyReader.getProperty("Age", Integer.class, Collections.emptyList()));
+        user.setGender(this.propertyReader.getProperty("Gender", Gender.class, Arrays.asList(Gender.values())));
+        user.setProfession(this.propertyReader.getProperty("Profession", Profession.class, Arrays.asList(Profession.values())));
+        user.setDistrict(this.propertyReader.getProperty("District", District.class, Arrays.asList(District.values())));
+        user.setHobbies(this.propertyReader.getListProperty("Hobbies", String.class, Collections.emptyList()));
         user.setPartnerPreferences(new PartnerPreferences(
-                this.consoleOperator.getProperty("Partner's preferred gender", Gender.class, Arrays.asList(Gender.values())),
-                this.consoleOperator.getListProperty("Partner's preferred professions", Profession.class, Arrays.asList(Profession.values())),
+                this.propertyReader.getProperty("Partner's preferred gender", Gender.class, Arrays.asList(Gender.values())),
+                this.propertyReader.getListProperty("Partner's preferred professions", Profession.class, Arrays.asList(Profession.values())),
                 new AgeRange(
-                        this.consoleOperator.getProperty("Partner's preferred minimum age", Integer.class, Collections.emptyList()),
-                        this.consoleOperator.getProperty("Partner's preferred maximum age", Integer.class, Collections.emptyList())
+                        this.propertyReader.getProperty("Partner's preferred minimum age", Integer.class, Collections.emptyList()),
+                        this.propertyReader.getProperty("Partner's preferred maximum age", Integer.class, Collections.emptyList())
                 )
         ));
         return user;

@@ -7,12 +7,12 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-public class ConsoleOperator {
+public class PropertyReader {
     Scanner sc = new Scanner(System.in);
     ConsoleInput consoleInput;
     Util util;
 
-    public ConsoleOperator(ConsoleInput consoleInput, Util util) {
+    public PropertyReader(ConsoleInput consoleInput, Util util) {
         this.consoleInput = consoleInput;
         this.util = util;
     }
