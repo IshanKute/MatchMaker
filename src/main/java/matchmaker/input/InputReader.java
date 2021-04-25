@@ -8,11 +8,11 @@ import matchmaker.util.Util;
 import java.util.Scanner;
 
 
-public class ConsoleInput {
+public class InputReader {
     Scanner sc = new Scanner(System.in);
     Util util;
 
-    public ConsoleInput(Util util) {
+    public InputReader(Util util) {
         this.util = util;
     }
 

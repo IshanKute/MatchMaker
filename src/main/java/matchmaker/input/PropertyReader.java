@@ -9,11 +9,11 @@ import java.util.stream.Collectors;
 
 public class PropertyReader {
     Scanner sc = new Scanner(System.in);
-    ConsoleInput consoleInput;
+    InputReader inputReader;
     Util util;
 
-    public PropertyReader(ConsoleInput consoleInput, Util util) {
-        this.consoleInput = consoleInput;
+    public PropertyReader(InputReader inputReader, Util util) {
+        this.inputReader = inputReader;
         this.util = util;
     }
 
@@ -22,7 +22,7 @@ public class PropertyReader {
         List<T> propertyList = new ArrayList<>();
         do {
             util.printEnterPropertyMessage(propertyName, options.stream().filter(option -> !propertyList.contains(option)).collect(Collectors.toList()));
-            T property = consoleInput.getValidInput(propertyName, type);
+            T property = inputReader.getValidInput(propertyName, type);
             propertyList.add(property);
             util.print(propertyName + ": " + propertyList.toString());
             util.print("Press any key to continue adding more " + propertyName + " or press 'D' if you are done");
@@ -33,6 +33,6 @@ public class PropertyReader {
 
     public <T> T getProperty(String propertyName, Class<T> type, List<T> options) {
         util.printEnterPropertyMessage(propertyName, options);
-        return consoleInput.getValidInput(propertyName, type);
+        return inputReader.getValidInput(propertyName, type);
     }
 }

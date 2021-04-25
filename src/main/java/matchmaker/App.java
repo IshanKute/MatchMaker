@@ -1,7 +1,7 @@
 package matchmaker;
 
 import matchmaker.db.Repository;
-import matchmaker.input.ConsoleInput;
+import matchmaker.input.InputReader;
 import matchmaker.input.PropertyReader;
 import matchmaker.input.UserBuilder;
 import matchmaker.models.Score;
@@ -29,8 +29,8 @@ public class App {
         List<User> data = new Repository().getAllUsers();
 
         Util util = new Util();
-        ConsoleInput consoleInput = new ConsoleInput(util);
-        PropertyReader propertyReader = new PropertyReader(consoleInput, util);
+        InputReader inputReader = new InputReader(util);
+        PropertyReader propertyReader = new PropertyReader(inputReader, util);
         UserBuilder userBuilder = new UserBuilder(propertyReader);
         User user = userBuilder.build(new User());
 
