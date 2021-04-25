@@ -3,7 +3,7 @@ package matchmaker.input.validator;
 import matchmaker.exceptions.EmptyStringException;
 import matchmaker.exceptions.NonAlphabeticCharacterException;
 
-public class FullNameValidator implements Validator{
+public class FullNameValidator implements Validator {
     @Override
     public boolean validate(Object property) throws EmptyStringException, NonAlphabeticCharacterException {
         String fullName = (String) property;
