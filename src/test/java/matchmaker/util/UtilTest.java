@@ -16,9 +16,9 @@ import static org.mockito.Mockito.*;
 
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class UtilTest {
-    Console console = mock(Console.class);
-    Util util = new Util(console);
-    InOrder orderVerifier = inOrder(console);
+    Console mockConsole = mock(Console.class);
+    Util util = new Util(mockConsole);
+    InOrder orderVerifier = inOrder(mockConsole);
 
     @Test
     void cast_should_return_input_as_it_is_when_type_is_string() {
@@ -80,17 +80,17 @@ class UtilTest {
     @Test
     void should_print_correct_enter_property_message_when_options_are_present() {
         util.printEnterPropertyMessage("Gender", Arrays.asList(Gender.values()));
-        orderVerifier.verify(console).print("Select your Gender from the following list");
-        orderVerifier.verify(console).print("[Male, Female, Transgender]");
-        verify(console, never()).print("Enter Gender:");
+        orderVerifier.verify(mockConsole).print("Select your Gender from the following list");
+        orderVerifier.verify(mockConsole).print("[Male, Female, Transgender]");
+        verify(mockConsole, never()).print("Enter Gender:");
     }
 
     @Test
     void should_print_correct_enter_property_message_when_options_are_null() {
         util.printEnterPropertyMessage("Gender", null);
-        verify(console).print("Enter Gender:");
-        verify(console, never()).print("Select your Gender from the following list");
-        verify(console, never()).print("[Male, Female, Transgender]");
+        verify(mockConsole).print("Enter Gender:");
+        verify(mockConsole, never()).print("Select your Gender from the following list");
+        verify(mockConsole, never()).print("[Male, Female, Transgender]");
     }
 
     @Test
@@ -100,13 +100,13 @@ class UtilTest {
         User secondMatch = testData.get(1);
         List<Score> result = Arrays.asList(new Score(firstMatch, 25), new Score(secondMatch, 20));
         util.printResult(result);
-        orderVerifier.verify(console).print("-------------------------------------------------------------------------------------------");
-        orderVerifier.verify(console).print("Matched users are:");
-        orderVerifier.verify(console).print(firstMatch.getFullName() + ": 25");
-        orderVerifier.verify(console).print(firstMatch.toString());
-        orderVerifier.verify(console).print("\n");
-        orderVerifier.verify(console).print(secondMatch.getFullName() + ": 20");
-        orderVerifier.verify(console).print(secondMatch.toString());
-        orderVerifier.verify(console).print("\n");
+        orderVerifier.verify(mockConsole).print("-------------------------------------------------------------------------------------------");
+        orderVerifier.verify(mockConsole).print("Matched users are:");
+        orderVerifier.verify(mockConsole).print(firstMatch.getFullName() + ": 25");
+        orderVerifier.verify(mockConsole).print(firstMatch.toString());
+        orderVerifier.verify(mockConsole).print("\n");
+        orderVerifier.verify(mockConsole).print(secondMatch.getFullName() + ": 20");
+        orderVerifier.verify(mockConsole).print(secondMatch.toString());
+        orderVerifier.verify(mockConsole).print("\n");
     }
 }
