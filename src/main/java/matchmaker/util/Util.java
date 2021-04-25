@@ -45,14 +45,17 @@ public class Util {
     }
 
     public void printResult(List<Score> result) {
-        console.print("-------------------------------------------------------------------------------------------");
-        console.print("Matched users are:");
-        result.forEach(
-                r -> {
-                    console.print(r.getUser().getFullName() + ": " + r.getScore());
-                    console.print(r.getUser().toBasicString());
-                    console.print("\n");
-                }
-        );
+        if (result.size() > 0) {
+            console.print("-------------------------------------------------------------------------------------------");
+            console.print("Matched users are:");
+            result.forEach(
+                    r -> {
+                        console.print(r.getUser().getFullName() + ": " + r.getScore());
+                        console.print(r.getUser().toBasicString());
+                        console.print("\n");
+                    }
+            );
+        }
+        else console.print("There are no matching profiles");
     }
 }

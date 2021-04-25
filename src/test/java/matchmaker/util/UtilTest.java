@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InOrder;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -94,7 +95,7 @@ class UtilTest {
     }
 
     @Test
-    void should_print_result_properly() {
+    void should_print_result_when_there_is_at_least_one_matching_profile() {
         List<User> testData = new TestData().getData();
         User firstMatch = testData.get(0);
         User secondMatch = testData.get(1);
@@ -108,5 +109,14 @@ class UtilTest {
         orderVerifier.verify(mockConsole).print(secondMatch.getFullName() + ": 20");
         orderVerifier.verify(mockConsole).print(secondMatch.toBasicString());
         orderVerifier.verify(mockConsole).print("\n");
+    }
+
+    @Test
+    void should_print_no_matching_messsage_when_there_are_no_matches() {
+        List<Score> result = Collections.emptyList();
+        util.printResult(result);
+        verify(mockConsole).print("There are no matching profiles");
+        verify(mockConsole, never()).print("-------------------------------------------------------------------------------------------");
+        verify(mockConsole, never()).print("Matched users are:");
     }
 }
