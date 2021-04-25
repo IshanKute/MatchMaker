@@ -1,9 +1,13 @@
 package matchmaker;
 
+import matchmaker.input.ConsoleInput;
+import matchmaker.input.ConsoleOperator;
+import matchmaker.input.UserBuilder;
 import matchmaker.models.Score;
 import matchmaker.models.User;
 import matchmaker.rules.hardrules.*;
 import matchmaker.rules.softrules.*;
+import matchmaker.util.Util;
 
 
 import java.util.Arrays;
@@ -18,7 +22,11 @@ public class App {
 
         List<User> data = Database.getData();
 
-        User user = data.get(0);
+        Util util = new Util();
+        ConsoleInput consoleInput = new ConsoleInput(util);
+        ConsoleOperator consoleOperator = new ConsoleOperator(consoleInput, util);
+        UserBuilder userBuilder = new UserBuilder(consoleOperator);
+        User user = userBuilder.build(new User());
 
         List<User> hardRulesFilteredUsers = data.stream().filter(
                 savedUser -> hardRules.stream()
@@ -32,14 +40,6 @@ public class App {
                 .filter(score -> score.getScore() > 15)
                 .sorted(Comparator.comparingInt(Score::getScore).reversed()).collect(Collectors.toList());
 
-        System.out.println("-------------------------------------------------------------------------------------------");
-        System.out.println("Matched users are:");
-        result.forEach(
-                r -> {
-                    System.out.println(r.getUser().getFullName() + ": " + r.getScore());
-                    System.out.println(r.getUser().toString());
-                    System.out.println("\n");
-                }
-        );
+        util.printResult(result);
     }
 }
