@@ -7,7 +7,7 @@ public class DistrictRule implements SoftRule{
     int points = 12;
     @Override
     public int applyRule(User loggedInUser, User savedUser) {
-        if (loggedInUser.getDistrict().getNearbyDistricts().contains(savedUser.getDistrict()))
+        if (loggedInUser.getDistrict().getNearbyDistricts().contains(savedUser.getDistrict()) || loggedInUser.getDistrict() == savedUser.getDistrict())
             return points;
         else return 0;
     }

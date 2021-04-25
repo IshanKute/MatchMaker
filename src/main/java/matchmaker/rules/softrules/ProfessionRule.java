@@ -6,11 +6,11 @@ public class ProfessionRule implements SoftRule {
     int points = 6;
     @Override
     public int applyRule(User loggedInUser, User savedUser) {
-        int score = 0;
+        int totalPoints = 0;
         if (loggedInUser.getPartnerPreferences().getProfessions().contains(savedUser.getProfession()))
-            score += points;
+            totalPoints += points;
         if (savedUser.getPartnerPreferences().getProfessions().contains(loggedInUser.getProfession()))
-            score +=points;
-        return score;
+            totalPoints +=points;
+        return totalPoints;
     }
 }

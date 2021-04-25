@@ -10,12 +10,11 @@ public class HobbiesRule implements SoftRule{
     int points = 4;
     @Override
     public int applyRule(User loggedInUser, User savedUser) {
-        int matchedHobbiesCount = Stream.concat(loggedInUser.getHobbies().stream(), savedUser.getHobbies().stream())
+        int matchedHobbiesCount = (int) Stream.concat(loggedInUser.getHobbies().stream(), savedUser.getHobbies().stream())
                 .collect(Collectors.toList()).stream()
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
                 .entrySet().stream()
-                .filter(entry -> entry.getValue() == 2).collect(Collectors.toList())
-                .size();
+                .filter(entry -> entry.getValue() == 2).count();
         return matchedHobbiesCount * points;
     }
 }
