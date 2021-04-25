@@ -1,7 +1,7 @@
 # MatchMaker
 Matrimony like Console app
 
-# Problem Statement
+## Problem Statement
 
 Develop a simple console app 'MatchMaker' which will match prospective brides & grooms according to their preferences.
 
@@ -13,27 +13,27 @@ Ask user to enter following details:
 3. Gender
 4. Profession
 5. District
-6. Hobbies(Each hobby should be a one word like 'Singing' & not two words like 'Playing tennis')
+6. Hobbies
 7. Partners preferred Gender
 8. Partners preferred professions
 9. Partners preferred age-range (inclusive range)
 
 Only following professions & districts are allowed:
-Allowed professions: Engineer, Doctor, Lawyer, CA, Teacher, Farmer, BusinessPerson, Marketing
-Allowed districts: Amravati, Yavatmal, Akola, Wardha, Nagpur, Washim, Buldhana, Nanded
+1. Allowed professions: Engineer, Doctor, Lawyer, CA, Teacher, Farmer, BusinessPerson, Marketing
+2. Allowed districts: Amravati, Yavatmal, Akola, Wardha, Nagpur, Washim, Buldhana, Nanded
 
-Following is the table of district names and their nearby districts
+Following is the list of district names and their nearby districts
 District -> Nearby Districts
-Amravati -> (Yavatmal, Akola, Wardha, Washim)
-Yavatmal -> (Amravati, Wardha, Washim, Nanded)
-Akola -> (Amravati, Buldhana, Washim)
-Wardha -> (Yavatmal, Amravati, Nagpur)
-Nagpur -> (Wardha)
-Washim -> (Yavatmal, Akola, Amravati, Nanded)
-Buldhana -> (Yavatmal, Akola, Wardha, Washim)
-Nanded -> (Yavatmal, Akola, Wardha, Washim)
+1. Amravati -> (Yavatmal, Akola, Wardha, Washim)
+2. Yavatmal -> (Amravati, Wardha, Washim, Nanded)
+3. Akola -> (Amravati, Buldhana, Washim)
+4. Wardha -> (Yavatmal, Amravati, Nagpur)
+5. Nagpur -> (Wardha)
+6. Washim -> (Yavatmal, Akola, Amravati, Nanded)
+7. Buldhana -> (Yavatmal, Akola, Wardha, Washim)
+8. Nanded -> (Yavatmal, Akola, Wardha, Washim)
 
-Rules for matching:
+###Rules for matching:
 
 A. Hard rules: These rules must match for a match to happen:
 1. Age should be in the preferred age-range
