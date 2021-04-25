@@ -1,8 +1,8 @@
 package matchmaker.models;
 
 public class Score {
-    private User user;
-    private int score;
+    private final User user;
+    private final int score;
 
     public Score(User user, int score) {
         this.user = user;
@@ -13,15 +13,7 @@ public class Score {
         return user;
     }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
-
     public int getScore() {
         return score;
-    }
-
-    public void setScore(int score) {
-        this.score = score;
     }
 }

@@ -103,10 +103,10 @@ class UtilTest {
         orderVerifier.verify(mockConsole).print("-------------------------------------------------------------------------------------------");
         orderVerifier.verify(mockConsole).print("Matched users are:");
         orderVerifier.verify(mockConsole).print(firstMatch.getFullName() + ": 25");
-        orderVerifier.verify(mockConsole).print(firstMatch.toString());
+        orderVerifier.verify(mockConsole).print(firstMatch.toBasicString());
         orderVerifier.verify(mockConsole).print("\n");
         orderVerifier.verify(mockConsole).print(secondMatch.getFullName() + ": 20");
-        orderVerifier.verify(mockConsole).print(secondMatch.toString());
+        orderVerifier.verify(mockConsole).print(secondMatch.toBasicString());
         orderVerifier.verify(mockConsole).print("\n");
     }
 }
