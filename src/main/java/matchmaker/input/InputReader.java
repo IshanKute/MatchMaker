@@ -3,16 +3,15 @@ package matchmaker.input;
 import matchmaker.exceptions.CastException;
 import matchmaker.exceptions.ValidatorException;
 import matchmaker.input.validator.ValidatorFactory;
+import matchmaker.util.Console;
 import matchmaker.util.Util;
 
-import java.util.Scanner;
-
-
 public class InputReader {
-    Scanner sc = new Scanner(System.in);
+    Console console;
     Util util;
 
-    public InputReader(Util util) {
+    public InputReader(Console console, Util util) {
+        this.console = console;
         this.util = util;
     }
 
@@ -23,11 +22,11 @@ public class InputReader {
         Object property = null;
         while(!propertyIsValid) {
             try {
-                property = util.cast(this.sc.nextLine(), type);
+                property = util.cast(this.console.read(), type);
                 propertyIsValid = validatorFactory.getValidator(propertyName).validate(property);
             } catch (ValidatorException | CastException e) {
-                util.print(e.getMessage());
-                util.print("Please enter again: ");
+                console.print(e.getMessage());
+                console.print("Please enter again: ");
             }
         }
         return (T) property;

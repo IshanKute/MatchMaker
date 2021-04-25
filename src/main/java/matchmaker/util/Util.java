@@ -6,7 +6,11 @@ import matchmaker.models.*;
 import java.util.List;
 
 public class Util {
-    public Util() {}
+    Console console;
+
+    public Util(Console console) {
+        this.console = console;
+    }
 
     @SuppressWarnings("unchecked")
     public <T> Object cast(String nextLine, Class<T> type) throws CastException {
@@ -34,25 +38,21 @@ public class Util {
 
     public <T> void printEnterPropertyMessage(String propertyName, List<T> options) {
         if(options != null && options.size() > 0) {
-            print("Select your " + propertyName + " from the following list");
-            print(options.toString());
+            console.print("Select your " + propertyName + " from the following list");
+            console.print(options.toString());
         }
-        else print("Enter " + propertyName + ":");
+        else console.print("Enter " + propertyName + ":");
     }
 
     public void printResult(List<Score> result) {
-        print("-------------------------------------------------------------------------------------------");
-        print("Matched users are:");
+        console.print("-------------------------------------------------------------------------------------------");
+        console.print("Matched users are:");
         result.forEach(
                 r -> {
-                    print(r.getUser().getFullName() + ": " + r.getScore());
-                    print(r.getUser().toString());
-                    print("\n");
+                    console.print(r.getUser().getFullName() + ": " + r.getScore());
+                    console.print(r.getUser().toString());
+                    console.print("\n");
                 }
         );
-    }
-
-    public void print(String s){
-        System.out.println(s);
     }
 }
