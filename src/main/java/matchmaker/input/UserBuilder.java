@@ -12,7 +12,8 @@ public class UserBuilder {
         this.propertyReader = propertyReader;
     }
 
-    public User build(User user) {
+    public User build() {
+        User user = new User();
         user.setFullName(this.propertyReader.getProperty("Full name", String.class, Collections.emptyList()));
         user.setAge(this.propertyReader.getProperty("Age", Integer.class, Collections.emptyList()));
         user.setGender(this.propertyReader.getProperty("Gender", Gender.class, Arrays.asList(Gender.values())));

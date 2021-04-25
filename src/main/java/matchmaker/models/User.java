@@ -88,6 +88,18 @@ public class User {
                 ", profession=" + profession +
                 ", district=" + district +
                 ", hobbies=" + hobbies +
+                ", partnerPreferences=" + partnerPreferences.toString() +
+                '}';
+    }
+
+    public String toBasicString() {
+        return "User{" +
+                "fullName='" + fullName + '\'' +
+                ", age=" + age +
+                ", gender=" + gender +
+                ", profession=" + profession +
+                ", district=" + district +
+                ", hobbies=" + hobbies +
                 '}';
     }
 }

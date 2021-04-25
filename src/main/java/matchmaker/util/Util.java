@@ -50,7 +50,7 @@ public class Util {
         result.forEach(
                 r -> {
                     console.print(r.getUser().getFullName() + ": " + r.getScore());
-                    console.print(r.getUser().toString());
+                    console.print(r.getUser().toBasicString());
                     console.print("\n");
                 }
         );

@@ -34,7 +34,7 @@ public class App {
         InputReader inputReader = new InputReader(console, util);
         PropertyReader propertyReader = new PropertyReader(inputReader, util, console);
         UserBuilder userBuilder = new UserBuilder(propertyReader);
-        User user = userBuilder.build(new User());
+        User user = userBuilder.build();
 
         List<User> hardRulesFilteredUsers = data.stream().filter(
                 savedUser -> hardRules.stream()

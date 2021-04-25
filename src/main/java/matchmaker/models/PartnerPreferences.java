@@ -36,4 +36,13 @@ public class PartnerPreferences {
     public void setAgeRange(AgeRange ageRange) {
         this.ageRange = ageRange;
     }
+
+    @Override
+    public String toString() {
+        return "PartnerPreferences{" +
+                "gender=" + gender +
+                ", professions=" + professions +
+                ", ageRange=" + ageRange.toString() +
+                '}';
+    }
 }

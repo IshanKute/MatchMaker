@@ -28,4 +28,12 @@ public class AgeRange {
     public boolean checkRange(int age) {
         return age >= this.lowerAge && age <= this.upperAge;
     }
+
+    @Override
+    public String toString() {
+        return "AgeRange{" +
+                "lowerAge=" + lowerAge +
+                ", upperAge=" + upperAge +
+                '}';
+    }
 }
